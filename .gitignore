@@ -9,3 +9,4 @@ airspace/assets/models/*.task
 airspace/assets/models/*.tflite
 build/
 dist/
+.claude/

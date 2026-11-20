@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>airspace — control your desktop with your hands</title>
+  <meta name="description" content="airspace turns your webcam into an input device: point to move, pinch to click, open your palm for the launcher. Hand tracking runs on your device. Try it in your browser or download the Mac app.">
+  <meta name="theme-color" content="#0b0f14">
+  <meta property="og:title" content="airspace">
+  <meta property="og:description" content="A gesture-controlled spatial desktop. Point, pinch and drag with your bare hands through your webcam.">
+  <meta property="og:image" content="img/launcher.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#"><span class="ring" aria-hidden="true"></span>airspace</a>
+    <nav>
+      <a href="#demo">Demo</a>
+      <a href="#download">Download</a>
+      <a href="https://github.com/yoonmax/airspace">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">open source · on-device hand tracking</p>
+      <h1>Control your desktop<br>with your hands.</h1>
+      <p class="lede">airspace turns an ordinary webcam into an input device. Point to move the cursor, pinch to click,
+        pinch and move to drag, open your palm for the launcher. Your camera feed becomes the backdrop of a workspace
+        of floating glass windows, and none of it leaves your computer.</p>
+      <div class="cta">
+        <a class="btn primary" href="#demo">Try it in your browser</a>
+        <a class="btn" href="https://github.com/yoonmax/airspace/releases/download/v0.1.0/airspace-0.1.0-macos-arm64.zip">Download for Mac</a>
+      </div>
+      <p class="fine">Mac app: Apple Silicon, 145 MB, free under the MIT license.</p>
+      <figure class="shot hero-shot">
+        <img src="img/launcher.jpg" width="1600" height="1004" alt="airspace: floating glass windows, a 3D object viewer and the radial app launcher">
+      </figure>
+    </section>
+
+    <section id="demo" class="demo-section">
+      <div class="section-head">
+        <h2>Try the gestures</h2>
+        <p>A small version of airspace that runs in this page. Use one hand, about an arm's length from the camera,
+          with your palm facing the screen.</p>
+      </div>
+
+      <div class="stage" id="stage">
+        <video id="video" playsinline muted></video>
+        <div class="stage-shade"></div>
+
+        <div class="hud">
+          <span class="pill" id="pill-cam"><i></i>camera off</span>
+          <span class="pill" id="pill-hand"><i></i>no hands</span>
+          <span class="pill" id="pill-gesture">idle</span>
+          <span class="pill" id="pill-fps">– fps</span>
+        </div>
+
+        <div id="cards"></div>
+        <div class="launcher" id="launcher" hidden></div>
+        <div class="cursor" id="cursor" hidden><span class="cursor-ring"></span><span class="cursor-dot"></span></div>
+
+        <div class="gate" id="gate">
+          <div class="gate-card">
+            <span class="ring big" aria-hidden="true"></span>
+            <h3>Start the camera</h3>
+            <p>Video stays in this browser tab: no frames are uploaded or recorded. The first start downloads the
+              MediaPipe hand-tracking library (from jsDelivr) and Google's hand model, about 22 MB together.</p>
+            <button class="btn primary" id="start">Start camera</button>
+            <p class="gate-note" id="gate-note"><button class="linkish" id="mouse-only">No camera? Use the mouse instead</button></p>
+          </div>
+        </div>
+      </div>
+
+      <ol class="howto">
+        <li><b>Point</b><span>Index finger out to move the cursor. It sits on your fingertip.</span></li>
+        <li><b>Pinch</b><span>Touch your thumb and index tips together, then release to click.</span></li>
+        <li><b>Drag</b><span>Pinch a card's title bar, move, then release.</span></li>
+        <li><b>Open palm</b><span>Spread your hand and hold it still for a moment to open the launcher.</span></li>
+        <li><b>Fist</b><span>Close your hand to dismiss the launcher.</span></li>
+      </ol>
+    </section>
+
+    <section class="features">
+      <div class="section-head">
+        <h2>The desktop app does a lot more</h2>
+        <p>The full app is a Python desktop with a real window manager and working apps.</p>
+      </div>
+      <div class="grid">
+        <article><h3>Glass windows over your room</h3><p>Holographic windows let your room and your hands show through the background while the content stays solid. Open, focus, drag, resize, minimise and arrange them.</p></article>
+        <article><h3>Hands in front of the UI</h3><p>Person segmentation lets your hands pass in front of windows, with a clear lens around the fingertip so targets stay readable.</p></article>
+        <article><h3>Two-hand gestures</h3><p>Pinch a window with both hands and stretch to resize it, or zoom and rotate photos and 3D objects.</p></article>
+        <article><h3>Working mini-apps</h3><p>Music player, air-drawing canvas, photo gallery, real-time 3D object viewer, system monitor, calculator and a live tracking inspector.</p></article>
+        <article><h3>Tuned from live tracking data</h3><p>A fingertip cursor that holds still while you pinch, smoothing that trails by only a few pixels, and per-user pinch calibration.</p></article>
+        <article><h3>Mouse and keyboard always work</h3><p>Every action also works with the mouse and keyboard, and ⌘Q always quits.</p></article>
+      </div>
+      <div class="shots">
+        <figure class="shot"><img src="img/workspace.jpg" width="1600" height="1004" loading="lazy" alt="gallery, system monitor, calculator and a globe in the 3D viewer"></figure>
+        <figure class="shot"><img src="img/settings.jpg" width="1600" height="1004" loading="lazy" alt="tracking settings next to the 3D object viewer and music player"></figure>
+      </div>
+    </section>
+
+    <section id="download" class="download">
+      <div class="section-head">
+        <h2>Download for Mac</h2>
+        <p>Apple Silicon (M1 or later). Tested on macOS 26.6.</p>
+      </div>
+      <div class="dl-card">
+        <a class="btn primary big" href="https://github.com/yoonmax/airspace/releases/download/v0.1.0/airspace-0.1.0-macos-arm64.zip">airspace 0.1.0 for Mac · 145 MB</a>
+        <ol class="steps">
+          <li>Unzip it, move <code>airspace.app</code> to Applications, and double-click it.</li>
+          <li>The app isn't notarised by Apple yet, so macOS blocks it the first time. Click <b>Done</b>, open
+            <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>.</li>
+          <li>Allow camera access. A short calibration runs on first launch.</li>
+        </ol>
+        <p class="fine">On Intel Macs, Windows or Linux, <a href="https://github.com/yoonmax/airspace#installation">run it from source</a> with Python 3.11 or newer. Those platforms haven't been tested.
+          <a href="https://github.com/yoonmax/airspace/releases/latest">Release notes</a></p>
+      </div>
+    </section>
+
+    <section class="privacy">
+      <h2>Privacy</h2>
+      <p>Both the app and this page track your hands on your own device. Nothing uploads or records camera frames,
+        nothing uses the microphone, and neither has analytics or cookies. This page loads the tracking library from
+        jsDelivr and the hand model from Google's model storage. After that, the camera image never leaves your
+        browser. The camera stops when you leave or hide this tab, and the Mac app pauses it while your screen is
+        locked.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>airspace · <a href="https://github.com/yoonmax/airspace/blob/main/LICENSE">MIT License</a> ·
+      <a href="https://github.com/yoonmax/airspace/blob/main/THIRD_PARTY_NOTICES.md">third-party notices</a></span>
+    <span>Hand tracking by <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker">MediaPipe</a> (Apache 2.0)</span>
+  </footer>
+
+  <script type="module" src="demo.js"></script>
+</body>
+</html>
