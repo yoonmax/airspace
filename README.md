@@ -16,6 +16,18 @@ and person segmentation, PySide6/Qt for the interface, ModernGL for 3D.
 > solid background). See [Testing status](#testing-status) for exactly what
 > has and hasn't been verified with a physical webcam.
 
+## Try it
+
+**[Download airspace for Mac (Apple Silicon)](https://github.com/yoonmax/airspace/releases/download/v0.1.0/airspace-0.1.0-macos-arm64.zip)**
+(145 MB, v0.1.0) · [release notes](https://github.com/yoonmax/airspace/releases/latest)
+
+1. Unzip and move `airspace.app` to Applications, then double-click it.
+2. The build is not notarised by Apple, so macOS blocks it the first time: click **Done**, then open
+   *System Settings → Privacy & Security*, scroll down and click **Open Anyway**.
+3. Allow camera access. A short calibration runs on first launch; ⌘Q quits.
+
+Tested only on macOS 26.6 / Apple Silicon. On Intel Macs, Windows or Linux, [run from source](#installation).
+
 ---
 
 ## Contents
@@ -87,7 +99,7 @@ ring while pressed, a ripple on click, an orange arc while an open palm is being
 Requires **Python 3.11+** (verified on 3.15.2, earlier on 3.14.0) and a webcam.
 
 ```bash
-git clone <this repository> airspace && cd airspace
+git clone https://github.com/yoonmax/airspace.git && cd airspace
 python3 -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
