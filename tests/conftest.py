@@ -1,0 +1,26 @@
+from __future__ import annotations
+
+import os
+import sys
+import tempfile
+from pathlib import Path
+
+os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+os.environ["AIRSPACE_DATA_DIR"] = tempfile.mkdtemp(prefix="airspace-tests-")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+import pytest  # noqa: E402
+
+
+@pytest.fixture(scope="session")
+def qapp():
+    from PySide6.QtWidgets import QApplication
+
+    app = QApplication.instance() or QApplication(["airspace-tests"])
+    yield app
+
+
+@pytest.fixture
+def data_dir(tmp_path, monkeypatch):
+    monkeypatch.setenv("AIRSPACE_DATA_DIR", str(tmp_path))
+    return tmp_path

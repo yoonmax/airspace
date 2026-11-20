@@ -1,0 +1,11 @@
+*.pyc
+*.spec.bak
+.DS_Store
+.pytest_cache/
+.venv/
+.venv-*/
+__pycache__/
+airspace/assets/models/*.task
+airspace/assets/models/*.tflite
+build/
+dist/

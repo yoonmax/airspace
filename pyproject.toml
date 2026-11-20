@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airspace"
+version = "0.1.0"
+description = "airspace — a gesture-controlled spatial desktop powered by computer vision."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "PySide6>=6.7",
+    "mediapipe>=0.10.14",
+    "opencv-contrib-python>=4.9",
+    "numpy>=1.26",
+    "psutil>=5.9",
+    "moderngl>=5.10",
+    "Pillow>=10.0",
+    "trimesh>=4.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pyinstaller>=6.5"]
+
+[project.scripts]
+airspace = "airspace.main:main"
+
+[tool.setuptools.packages.find]
+include = ["airspace*"]
+
+[tool.setuptools.package-data]
+airspace = ["assets/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
