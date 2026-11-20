@@ -18,6 +18,12 @@ and person segmentation, PySide6/Qt for the interface, ModernGL for 3D.
 
 ## Try it
 
+**[Try the gestures in your browser → airspace-eta.vercel.app](https://airspace-eta.vercel.app)** — a small
+in-page version of airspace (fingertip cursor, pinch to click, pinch-drag, open palm for a launcher) that needs a
+webcam and a current browser; tracking runs in the page and no video is uploaded. Its gesture code is a port of
+the desktop app's and gives identical results on the synthetic test hands; it was checked in Chromium with
+simulated hand input, not yet with a live webcam. The page's code is in [`site/`](site/).
+
 **[Download airspace for Mac (Apple Silicon)](https://github.com/yoonmax/airspace/releases/download/v0.1.0/airspace-0.1.0-macos-arm64.zip)**
 (145 MB, v0.1.0) · [release notes](https://github.com/yoonmax/airspace/releases/latest)
 
