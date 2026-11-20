@@ -18,7 +18,7 @@ and person segmentation, PySide6/Qt for the interface, ModernGL for 3D.
 
 ## Try it
 
-**[Try the gestures in your browser → airspace-eta.vercel.app](https://airspace-eta.vercel.app)** — a small
+**[Try the gestures in your browser → tryairspace.vercel.app](https://tryairspace.vercel.app)** — a small
 in-page version of airspace (fingertip cursor, pinch to click, pinch-drag, open palm for a launcher) that needs a
 webcam and a current browser; tracking runs in the page and no video is uploaded. Its gesture code is a port of
 the desktop app's and gives identical results on the synthetic test hands; it was checked in Chromium with
