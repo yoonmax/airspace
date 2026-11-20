@@ -354,5 +354,7 @@ itself can take up to 1 s).
 
 ## Licenses
 
+airspace is released under the [MIT License](LICENSE).
+
 Third-party components and models are listed with their licenses in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

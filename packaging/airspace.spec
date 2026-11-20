@@ -19,7 +19,7 @@ datas += collect_data_files("trimesh")
 # License texts must travel with the binaries: the summary, the GNU texts for
 # Qt/PySide6 (LGPL v3, which builds on GPL v3) and FFmpeg (LGPL v2.1), and each
 # bundled package's own license files from its installed metadata.
-datas += [(str(ROOT / "THIRD_PARTY_NOTICES.md"), "."), (str(ROOT / "licenses"), "licenses")]
+datas += [(str(ROOT / "LICENSE"), "."), (str(ROOT / "THIRD_PARTY_NOTICES.md"), "."), (str(ROOT / "licenses"), "licenses")]
 _py_license = Path(sys.base_prefix) / "lib" / f"python{sys.version_info[0]}.{sys.version_info[1]}" / "LICENSE.txt"
 if _py_license.exists():  # the bundled Python runtime (PSF License)
     datas.append((str(_py_license), "licenses/python"))
